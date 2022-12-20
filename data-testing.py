@@ -26,4 +26,3 @@ print(df.info())
 
 # Transpose index and columns
 print(df.describe().T)
-
