@@ -6,16 +6,12 @@ Created on Mon Dec 12 19:24:23 2022
 """
 import pandas as pd
 from sklearn.svm import SVC
-from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from sklearn.metrics import accuracy_score
 
 df = pd.read_csv("winequality-red.csv")
-
-le = LabelEncoder()
-le.fit(df["quality"].unique())
-df["quality"] = le.transform(df["quality"])
 
 X = df.drop("quality",axis=1)
 y = df["quality"]

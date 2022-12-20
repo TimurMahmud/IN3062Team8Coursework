@@ -6,7 +6,7 @@ Created on Wed Dec 14 20:43:26 2022
 """
 
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from sklearn.metrics import accuracy_score
@@ -14,9 +14,6 @@ from sklearn.neural_network import MLPClassifier
 
 df = pd.read_csv("winequality-red.csv")
 
-le = LabelEncoder()
-le.fit(df["quality"].unique())
-df["quality"] = le.transform(df["quality"])
 
 X = df.drop("quality",axis=1)
 y = df["quality"]
