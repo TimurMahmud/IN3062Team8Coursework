@@ -10,10 +10,6 @@ from sklearn.preprocessing import LabelEncoder
 
 df = pd.read_csv("winequality-red.csv")
 
-le = LabelEncoder()
-le.fit(df["quality"].unique())
-df["quality"] = le.transform(df["quality"])
-
 # Shows the features and target with some data
 print(df.head())
 
@@ -31,6 +27,3 @@ print(df.info())
 
 # Transpose index and columns
 print(df.describe().T)
-
-
-
