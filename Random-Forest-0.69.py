@@ -19,8 +19,6 @@ y = df["quality"]
 
 X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.25, random_state=7)
 
-
-
 pca = PCA()
 X_train_pca = pca.fit_transform(X_train)
 X_test_pca = pca.transform(X_test)
