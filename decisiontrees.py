@@ -57,4 +57,6 @@ confusion_matrix(y_test,y_preds)
 print(classification_report(y_test,y_preds))
 # Calculate the number of nodes in the tree
 dt_basic.tree_.node_count
+print(accuracy_value)
+
 
