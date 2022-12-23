@@ -7,15 +7,9 @@ Created on Mon Dec 12 16:36:23 2022
 
 #load necessary libraries
 import pandas as pd
-import numpy as np
-from sklearn import datasets
 from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.metrics import classification_report
 
 #load the dataset
@@ -41,5 +35,3 @@ y_pred_gnb = gnb_model.predict(X_test)
 #display classification report and accuracy score
 print(classification_report(y_test, y_pred_gnb))
 print('GNB Accuracy: %.3f' % accuracy_score(y_test, y_pred_gnb))
-
-
