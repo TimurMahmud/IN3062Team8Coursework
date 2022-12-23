@@ -4,12 +4,31 @@ Created on Mon Dec 12 19:24:23 2022
 
 @author: timur
 """
+#import required libraries
 import pandas as pd
+import numpy as np
 from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+from sklearn.metrics import ConfusionMatrixDisplay
+
+#method to plot confusion matrices
+def plot_confusion_matrix(cm, names, title='Confusion matrix', cmap=plt.cm.Blues):
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title)
+    plt.colorbar(fraction=0.05)
+    tick_marks = np.arange(len(names))
+    plt.xticks(tick_marks, names, rotation=45)
+    plt.yticks(tick_marks, names)
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
+    
+    
 
 # read in the wine quality data from a CSV file
 df = pd.read_csv("winequality-red.csv")
@@ -40,3 +59,9 @@ preds = svm.predict(X_test)
 # evaluate the model's performance using classification report and accuracy score
 print(classification_report(y_test, preds))
 print(accuracy_score(y_test,preds))
+
+#create and plot confusion matrix and display via bullitin method with display labels as list of classes
+cm = confusion_matrix(y_test, preds)
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['3','4','5','6','7','8'])
+disp.plot()
+plt.show()
